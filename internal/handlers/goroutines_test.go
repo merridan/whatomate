@@ -522,7 +522,7 @@ func TestApp_DispatchWebhook_MessageEventWithMedia(t *testing.T) {
 		ContactName:   "Test Contact",
 		MessageType:   "image",
 		Content:       "",
-		MediaURL:      "images/test-image.jpg",
+		MediaURL:      "/api/media/msg-123",
 		MediaMimeType: "image/jpeg",
 		MediaFilename: "test-image.jpg",
 	}
@@ -532,7 +532,7 @@ func TestApp_DispatchWebhook_MessageEventWithMedia(t *testing.T) {
 
 	assert.Equal(t, "message.incoming", receivedPayload.Event)
 	assert.Equal(t, "msg-123", receivedPayload.Data.MessageID)
-	assert.Equal(t, "images/test-image.jpg", receivedPayload.Data.MediaURL)
+	assert.Equal(t, "/api/media/msg-123", receivedPayload.Data.MediaURL)
 	assert.Equal(t, "image/jpeg", receivedPayload.Data.MediaMimeType)
 	assert.Equal(t, "test-image.jpg", receivedPayload.Data.MediaFilename)
 }
