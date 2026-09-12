@@ -505,7 +505,7 @@ func (a *App) broadcastNewMessage(orgID uuid.UUID, msg *models.Message, contact 
 		"direction":        msg.Direction,
 		"message_type":     msg.MessageType,
 		"content":          map[string]string{"body": msg.Content},
-		"media_url":        msg.MediaURL,
+		"media_url":        messageMediaURL(msg),
 		"media_mime_type":  msg.MediaMimeType,
 		"media_filename":   msg.MediaFilename,
 		"interactive_data": msg.InteractiveData,
